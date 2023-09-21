@@ -50,12 +50,12 @@ DApp（Decentralized Application）去中心化应用，自 P2P 网络出现以�
 
 ## ScreenShot
 
-![Picture1](/home/eakal/Word/blockchain/lab6/lab/petshop/pic/Picture1.png)
+![Picture1](./pic/Picture1.png)
 
 ![Picture2](/home/eakal/Word/blockchain/lab6/lab/petshop/pic/Picture2.png)
 
-![Picture2](/home/eakal/Word/blockchain/lab6/lab/petshop/pic/Picture3.png)
+![Picture3](./pic/Picture3.png)
 
-![Picture2](/home/eakal/Word/blockchain/lab6/lab/petshop/pic/Picture4.png)
+![Picture4](./pic/Picture4.png)
 
-![Picture2](/home/eakal/Word/blockchain/lab6/lab/petshop/pic/Picture5.png)
+![Picture5](./pic/Picture5.png)
