@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Pete's Pet Shop</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-8 col-sm-push-2">
+            <h1 class="text-center">Pete's Pet Shop</h1>
+            <hr/>
+            <div id="Addbutton" class="text-left">
+              <button class="btn addpets">Add Pets</button>
+            </div>
+            <div id="userDetails" class="text-right">
+              <strong>Address:</strong> <span id="userAddress"></span><br/>
+              <strong>Balance:</strong> <span id="userBalance"></span> ETH
+            </div>
+            <ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+              <li><a data-toggle="tab" href="#myPets">My Pets</a></li>
+            </ul>
+            <br/>
+          </div>
+        </div>
+  
+        <div class="tab-content">
+          <div id="home" class="tab-pane fade in active">
+            <div id="petsRow" class="row">
+              <!-- PETS LOAD HERE -->
+            </div>
+          </div>
+          
+          <div id="myPets" class="tab-pane fade">
+            <div id="myPetsRow" class="row">
+              <!-- USER'S PETS LOAD HERE -->
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- Remaining code... -->
+  </body>
+  
+
+
+    <div id="petTemplate" style="display: none;">
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="panel panel-default panel-pet">
+          <div class="panel-heading">
+            <h3 class="panel-title">Scrappy</h3>
+          </div>
+          <div class="panel-body">
+            <img alt="140x140" data-src="holder.js/140x140" class="img-rounded img-center" style="width: 100%;" src="https://animalso.com/wp-content/uploads/2017/01/Golden-Retriever_6.jpg" data-holder-rendered="true">
+            <br/><br/>
+            <strong>Breed</strong>: <span class="pet-breed">Golden Retriever</span><br/>
+            <strong>Age</strong>: <span class="pet-age">3</span><br/>
+            <strong>Location</strong>: <span class="pet-location">Warren, MI</span><br/><br/>
+            <button class="btn btn-default btn-adopt" type="button" data-id="0">Adopt</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="MypetTemplate" style="display:none;">
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="panel-pet-my">
+          <div class="panel-heading">
+            <h3 class="panel-title">Scrappy</h3>
+          </div>
+          <div class="panel-body">
+            <img alt="140x140" data-src="holder.js/140x140" class="img-rounded img-center" style="width: 100%;" src="https://animalso.com/wp-content/uploads/2017/01/Golden-Retriever_6.jpg" data-holder-rendered="true">
+            <br/><br/>
+            <strong>Breed</strong>: <span class="pet-breed">Golden Retriever</span><br/>
+            <strong>Age</strong>: <span class="pet-age">3</span><br/>
+            <strong>Location</strong>: <span class="pet-location">Warren, MI</span><br/><br/>
+            <button class="btn btn-default btn-adopt-free" type="button" data-id="0">Free</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="addPetModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addPetModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addPetModalLabel">Add Pet</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Add pet input fields here -->
+            <form>
+              <div class="form-group">
+                <label for="inputName">Name</label>
+                <input type="text" class="form-control" id="inputName" placeholder="Enter name">
+              </div>
+              <div class="form-group">
+                <label for="inputAge">Age</label>
+                <input type="number" class="form-control" id="inputAge" placeholder="Enter age">
+              </div>
+              <div class="form-group">
+                <label for="inputBreed">Breed</label>
+                <input type="text" class="form-control" id="inputBreed" placeholder="Enter breed">
+              </div>
+              <div class="form-group">
+                <label for="inputLocation">Location</label>
+                <input type="text" class="form-control" id="inputLocation" placeholder="Enter location">
+              </div>
+              <div class="form-group">
+                <label for="inputImage">Image URL</label>
+                <input type="text" class="form-control" id="inputImage" placeholder="Enter image URL">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button id="confirmAddPet" type="button" class="btn btn-primary">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="sellpetModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addPetModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addPetModalLabel">Sell Pet</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Add pet input fields here -->
+            <form>
+              <div class="form-group">
+                <label for="inputmoney">Gwei</label>
+                <input type="number" class="form-control" id="inputmoney" placeholder="Enter Gwei">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button id="confirmsell" type="button" class="btn btn-primary" data-id="0">Sell</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="transparentModal" tabindex="-1" role="dialog" aria-labelledby="transparentModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="transparentModalLabel">事件通知</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p id="transparentModalMessage"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
